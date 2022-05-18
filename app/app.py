@@ -3,10 +3,10 @@ from flask import Flask, request, make_response
 import pickle
 import pandas as pd
 
-data = pd.read_csv('student-mat.csv', sep=';')
+data = pd.read_csv('app//student-mat.csv', sep=';')
 data = data[['G1', 'G2', 'G3', 'studytime', 'failures', 'absences']]
 
-pickle_in = open('model.pickle', 'rb')
+pickle_in = open('app//model.pickle', 'rb')
 linear = pickle.load(pickle_in)
 
 app = Flask(__name__)
@@ -28,3 +28,4 @@ def getData():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
